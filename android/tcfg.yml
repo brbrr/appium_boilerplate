@@ -1,0 +1,19 @@
+ENV: :demo
+
+LOG_LEVEL: 'DEBUG'
+DEBUG: false
+REPORT: true
+
+servers:
+  demo:
+    :username: 'name'
+    :password: 'pass'
+    :host: "host"
+    :port: 0000
+    :database: 'test'
+  monniz:
+    :username: 'name'
+    :password: 'pass'
+    :host: "host"
+    :port: 0000
+    :database: 'test'

@@ -1,0 +1,13 @@
+---
+LOG_LEVEL: 'DEBUG'
+DEBUG: true
+
+database:
+
+  demo:
+    login: '---'
+    password: 'pass'
+
+  monniz:
+    login: '---'
+    password: 'pass'

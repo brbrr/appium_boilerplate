@@ -1,0 +1,8 @@
+[caps]
+deviceName = "emulator_name"
+platformName = "Android"
+platformVersion = "4.4.2"
+appActivity = "your.app.starting.activity.MainActivity"
+appPackage = "your.app.package"
+
+[appium_lib]
