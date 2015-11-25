@@ -20,14 +20,11 @@ gem 'rtesseract'
 gem 'rmagick'
 gem 'tesseract-ocr'
 
-
 # reporting
 gem 'allure-rspec'
 
-#configuration files support
+# configuration files support
 gem 'tcfg'
-
-
 gem 'highline'
 
 gem 'em-proxy'

@@ -1,7 +1,7 @@
 require 'logger'
 
 # module for intelgence logging
-module RestLogger
+module LogHelper
   LogFormatter = proc do |severity, datetime, _progname, msg|
     "#{severity[0]}: [#{datetime.strftime('%m/%d/%y %H:%M:%S')}] - #{msg}\n"
   end

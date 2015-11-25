@@ -6,4 +6,4 @@ require 'yaml'
 require 'pry'
 
 # load all of the support files
-Dir.glob('./utils/*_helper.rb').each { |h| require h }
+Dir["#{File.dirname(__FILE__)}/utils/*_helper.rb"].each { |h| require h }

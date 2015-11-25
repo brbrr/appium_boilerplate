@@ -1,4 +1,4 @@
-require 'rtesseract'
+# require 'rtesseract'
 require 'RMagick'
 require 'tesseract'
 
@@ -54,9 +54,8 @@ module OCRHelper
   # by default RTesseract gem is used here
   def recognize_text_on_pic(pic_location = nil)
     img = process_image(pic_location)
-    tess = RTesseract.new(img, lang: 'eng')
-    debug ocr_proc(img).text if $DEBUG
-    rec_text = tess.to_s # recognize
+    # tess = RTesseract.new(img, lang: 'eng')
+    rec_text = ocr_proc(img).text # recognize
     debug rec_text.gsub(/\n/, '\n')
     rec_text
   end
@@ -68,9 +67,9 @@ module OCRHelper
   end
 
   # tesseract-ocr gem is used here (could get better results)
-  def ocr_proc(img)
-    Tesseract::Engine.new do|e|
-      e.language  = :eng
+  def ocr_proc(img, language = :eng)
+    Tesseract::Engine.new do |e|
+      e.language  = language
       # e.blacklist = '|'
       e.image = img
     end
