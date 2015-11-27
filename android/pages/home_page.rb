@@ -1,4 +1,4 @@
-module BasePage
+module Android
   module HomePage
     class << self
       include BasePage
@@ -83,10 +83,8 @@ module BasePage
       end
     end # self
   end # HomePage
-end # BasePage
 
-module Kernel
   def home_page
-    BasePage::HomePage
+    HomePage
   end
-end
+end # Android

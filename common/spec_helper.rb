@@ -11,14 +11,14 @@ require_relative 'helpers'
 def setup_driver
   return if $driver
   caps = Appium.load_appium_txt file: File.join(Dir.pwd, 'appium.txt')
-  Appium::Driver.new caps
-  debug "setting up driver using #{caps.to_yaml}"
+  $driver = Appium::Driver.new caps
+  # debug "setting up driver using #{caps.to_yaml}"
 end
 
 def promote_methods
   info 'promoting methods'
-  Appium.promote_singleton_appium_methods BasePage
-  # Appium.promote_appium_methods RSpec::Core::ExampleGroup
+  Appium.promote_singleton_appium_methods Android
+  Appium.promote_appium_methods RSpec::Core::ExampleGroup
 end
 
 def take_screenshot
@@ -36,11 +36,12 @@ def start_proxy
 end
 
 RSpec.configure do |config|
+  config.include Android
   $env = TCFG.tcfg[:ENV]
 
   config.before(:all) do
     # config.include AllureRSpec::Adaptor #problems when with #start_proxy
-    info 'before :agit add .gitmodulesll config'
+    # info 'before :agit add .gitmodulesll config'
     setup_driver
     promote_methods
     $driver.start_driver

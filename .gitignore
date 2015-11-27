@@ -2,6 +2,7 @@
 gen/
 android/gen/
 .DS_Store
+*tags*
 
 
 ### Ruby template

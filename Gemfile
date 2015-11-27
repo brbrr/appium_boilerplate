@@ -28,3 +28,4 @@ gem 'tcfg'
 gem 'highline'
 
 gem 'em-proxy'
+gem 'require_all'

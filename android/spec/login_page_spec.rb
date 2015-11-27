@@ -1,10 +1,10 @@
-require_relative '../spec/requires'
+require_relative 'requires'
 
 describe 'Login' do
   before(:all) do
     expect(pin_code_page).to be_on_page
-    @phone = USER_TEST[:phone]
-    @pin_code = USER_TEST[:pin]
+    @phone = USR1.gsm_number
+    @pin_code = USR1.pin_code
     @login_limit = 5
 
     @invalid_pin = 9999
@@ -13,7 +13,7 @@ describe 'Login' do
   it 'successfully', depth: :shallow, positive: true do
     pin_code_page.login(@pin_code)
     expect(home_page).to be_on_page
-    expect(home_page.title).to eq 'Your balance'
+    expect(home_page.title).to eq 'My balance'
 
     home_page.logout
     home_page.start_app
@@ -24,7 +24,6 @@ describe 'Login' do
     empty_pin = nil
 
     before_counter = DB.login_attempts(@phone)
-    p before_counter
     pin_code_page.login(empty_pin)
     expect(toast?(TOAST_EMPTY_PIN)).to be_truthy
     expect(login_attempts(@phone)).to equal before_counter

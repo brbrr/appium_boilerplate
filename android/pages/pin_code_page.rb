@@ -1,4 +1,4 @@
-module BasePage
+module Android
   module PinCodePage
     class << self
       include BasePage
@@ -7,8 +7,6 @@ module BasePage
       KEY_ACTION = { id: PACKAGE + ':id/key_action' }
 
       def type_pin_code(pin_code, custom = false)
-        # click(FIELD_PIN_CODE)
-        # type_keys(pin_code, FIELD_PIN_CODE)
         clear_pin_field(FIELD_PIN_CODE)
         enter(pin_code, FIELD_PIN_CODE, custom)
       end
@@ -28,17 +26,13 @@ module BasePage
 
       def clear_pin_field(locator, chars = 6)
         click(locator)
-        # move to rightmost
         chars.times { press_keycode 22 }
-        # deleting
         chars.times { press_keycode 67 }
       end
     end
   end
-end
 
-module Kernel
   def pin_code_page
-    BasePage::PinCodePage
+    PinCodePage
   end
 end

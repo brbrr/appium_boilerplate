@@ -79,11 +79,11 @@ include LogHelper
 FileUtils.mkdir_p 'gen/screenshots'
 FileUtils.mkdir_p 'gen/reports'
 add_logger(:console, STDOUT)
-add_logger(:test_run, File.open('gen/reports/test_run.log', 'a'))
+# add_logger(:test_run, File.open('gen/reports/test_run.log', 'a'))
 # add_logger(:proxy_run, File.open('gen/reports/proxy_test_run.log', 'a'))
 
 set_log_level :console, TCFG.tcfg.fetch('LOG_LEVEL')
-set_log_level :test_run, 'debug'
+# set_log_level :test_run, 'debug'
 # set_log_level :proxy_run, 'debug'
 
-Appium::Logger.level = Logger::DEBUG
+# Appium::Logger.level = Logger::DEBUG
