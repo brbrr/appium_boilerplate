@@ -13,6 +13,7 @@ gem 'spec'
 # gem 'sauce_whisk'
 # gem 'test-unit'
 # gem 'minitest'
+
 gem 'mysql2'
 
 # picture to string recogintion
